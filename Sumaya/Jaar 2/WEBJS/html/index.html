@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../js/canvas.js" defer></script>
+    <script src="../js/Ingredient.js"></script>
+    <script src="../js/IngredientManager.js"></script>
+    <script src="../js/Pots.js"></script>
+    <script src="../js/PotManager.js"></script>
+    <script src="../js/Machine.js"></script>
+    <script src="../js/MachineManager.js"></script>
+    <script src="../js/Main.js" defer></script>
+    <script src="../js/MixingHall.js"></script>
+    <script src="../js/ColorTest.js" defer></script>
+    <script src="../js/WeatherAPI.js" defer></script>
+
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>Future Color - WEBJS Assesment</title>
+</head>
+
+<body>
+    <!-- Formulier voor het maken van een ingrediënt -->
+    <div id="ingredientForm" style="display:none;">
+        <div class="popup-content">
+            <span class="close" id="closeIngredientForm">&times;</span>
+            <h3>Ingrediënt Instellingen</h3>
+            <label for="createIngredientFormMinTime">Minimale Mengtijd (ms):</label>
+            <input type="number" id="createIngredientFormMinTime" name="minTime" required>
+            <label for="createIngredientFormMixSpeed">Mengsnelheid:</label>
+            <input type="number" id="createIngredientFormMixSpeed" name="mixSpeed" required>
+            <div id="rgbPickerContainer">
+                <label for="createIngredientFormColor">Kies een kleur:</label>
+                <input type="color" id="createIngredientFormColor">
+            </div>
+            <label for="createIngredientFormTexture">Structuur:</label>
+            <select id="createIngredientFormTexture" name="texture">
+                <option value="korrel">Korrel</option>
+                <option value="grove-korrel">Grove Korrel</option>
+                <option value="glad">Glad</option>
+                <option value="slijmerig">Slijmerig</option>
+            </select>
+            <button id="submitIngredientFormBtn">Maak Ingrediënt</button>
+        </div>
+    </div>
+
+    <!-- Formulier voor het maken van een machine -->
+    <div id="machineForm" style="display:none;">
+        <div class="popup-content">
+            <span class="close" id="closeMachineForm">&times;</span>
+            <h3>Machine Instellingen</h3>
+            <label for="createMachineFormMinTime">Minimale Mengtijd (ms):</label>
+            <input type="number" id="createMachineFormMinTime" name="minTime" required>
+
+            <label for="createMachineFormMixSpeed">Mengsnelheid:</label>
+            <input type="number" id="createMachineFormMixSpeed" name="mixSpeed" required>
+
+            <button id="submitMachineFormBtn">Maak Machine</button>
+        </div>
+    </div>
+
+
+    <!-- Pop-up voor het weergeven van ingredient info -->
+    <div id="ingredientInfoPopup" class="popup" style="display:none;">
+        <div class="popup-content">
+            <span class="close" id="closeIngredientInfoPopup">&times;</span>
+            <h3>Ingrediënt Info</h3>
+            <p id="ingredientInfoText"></p>
+        </div>
+    </div>
+
+    <!-- Buttons voor RGB/HSL -->
+    <div>
+        <button id="btnRGB" class="active">RGB</button>
+        <button id="btnHSL">HSL</button>
+
+        <p>Kies een stad waarvoor je de machines wilt instellen</p>
+
+        <label for="city">Kies een stad:</label>
+        <input type="text" id="city" value="Amsterdam" style="width: 200px;">
+
+        <button id="Weather">Bekijk weer en pas mengtijd aan</button>
+
+        <p id="weather"></p>
+        <p id="mixTime"></p>
+    </div>
+
+    <!-- De kleurwiel voor RGB en HSL -->
+    <canvas id="colorWheel" width="300" height="300"></canvas>
+
+    <!-- Ingrediënten sectie -->
+    <div class="container">
+        <h2>Ingrediënten</h2>
+        <button id="addIngredientBtn">Nieuw ingrediënt genereren</button>
+        <button id="addIngredientFormBtn">Nieuw ingrediënt maken</button>
+        <div id="ingredients" class="dropzone"></div>
+    </div>
+
+    <!-- Potten sectie -->
+    <div class="container">
+        <h2>Potten</h2>
+        <button id="addPotBtn">Nieuwe Pot genereren</button>
+        <div id="potsContainer" class="pot-container"></div>
+    </div>
+
+    <!-- Machine informatie -->
+    <div id="machineInfoPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closeMachinePopup">&times;</span>
+            <h3>Machine Informatie</h3>
+            <div id="machineInfoText"></div>
+        </div>
+    </div>
+
+    <!-- Machine maken -->
+    <div id="machinePopup" class="popup" style="display:none;">
+        <div class="popup-content">
+            <span class="close" id="closeMachinePopup">&times;</span>
+            <h3>Machine Instellingen</h3>
+            <label for="machineMinTime">Minimale Mengtijd (ms):</label>
+            <input type="number" id="machineMinTime" required>
+            <label for="machineMixSpeed">Mengsnelheid:</label>
+            <input type="number" id="machineMixSpeed" required>
+            <button id="createMachineBtn">Maak Machine</button>
+        </div>
+    </div>
+
+
+    <!-- Menghallen -->
+    <div>
+        <h2>Verf Menghal</h2>
+        <p>Selecteer een menghal of bekijk beide:</p>
+
+        <div class="tab">
+            <button class="tablinks" data-hall="one">Menghal 1</button>
+            <button class="tablinks" data-hall="two">Menghal 2</button>
+            <button class="tablinks" data-hall="all">Toon beide</button>
+        </div>
+
+        <div id="one" class="tabcontent">
+            <h3>Menghal 1</h3>
+            <div class="container">
+                <h2>Mengmachine</h2>
+                <button class="addMachineBtn" data-hall="one">Nieuwe Machine genereren</button>
+                <button class="addMachineFormBtn" data-hall="one">Nieuwe Machine maken</button>
+                <div id="machines-one" class="Machinedropzone"></div>
+            </div>
+        </div>
+
+        <div id="two" class="tabcontent">
+            <h3>Menghal 2</h3>
+            <div class="container">
+                <h2>Mengmachine</h2>
+                <button class="addMachineBtn" data-hall="two">Nieuwe Machine genereren</button>
+                <button class="addMachineFormBtn" data-hall="two">Nieuwe Machine maken</button>
+                <div id="machines-two" class="Machinedropzone"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- kleurentest -->
+    <div class="container">
+        <label for="gridSize">Aantal rijen x kolommen: </label>
+        <input type="number" id="gridSize" value="6" min="1" max="12">
+        <button id="generateGridBtn"></button>Genereer Grid</button>
+
+        <div id="gridContainer" style="display: grid; gap: 10px;"></div>
+
+        <div id="colorPopup" class="popup" style="display: none;">
+            <div id="colorInfo">
+                <h2>Triadische Kleuren</h2>
+                <div id="color1" class="popupColor" style="width: 50px; height: 50px;"></div>
+                <div id="originalColor" class="popupColor" style="width: 50px; height: 50px;"></div>
+                <div id="color2" class="popupColor" style="width: 50px; height: 50px;"></div>
+                <p id="color1Code"></p>
+                <p id="originalColorCode"></p>
+                <p id="color2Code"></p>
+            </div>
+            <button id="closePopupBtn">Sluit</button>
+        </div>
+    </div>
+</body>
+</html>
