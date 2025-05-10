@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website Design | SMY</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<header>
+    <nav>
+        <ul class="main-nav">
+            <li><a href="index.html">Home</a>
+                <ul class="submenu-level2">
+                    <li><a href="index.html#OnzeDiensten">Onze Diensten</a>
+                        <ul class="submenu-level3">
+                            <li><a href="index.html#Dienst1">Dienst 1</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#Reviews">Reviews</a>
+                        <ul class="submenu-level3">
+                            <li><a href="index.html#Review1">Eerste review</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="about.html">Mezelf</a>
+                <ul class="submenu-level2">
+                    <li><a href="about.html#MyHobbys">Mijn Hobbies</a>
+                        <ul class="submenu-level3">
+                            <li><a href="about.html#Islam">Islam</a></li>
+                            <li><a href="about.html#Quran">Quran</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html#FunFacts">Feitjes</a>
+                        <ul class="submenu-level3">
+                            <li><a href="about.html#FunFacts"">Alle feitjes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="skills.html">Gallerij</a></li>
+            <li><a href="education.html">Educatie</a></li>
+            <li><a href="work.html">Werk</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="table.html">Tabel</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <section class="contact">
+        <h1 class="headings">CONTACT</h1>
+        <form action="" class="form">
+            <label for="name">Your Name:</label>
+            <input type="text" name="name" id="name" class="input" placeholder="Enter Your Name">
+
+            <label for="email">Your Email:</label>
+            <input type="email" name="email" id="email" class="input" placeholder="Enter Your Email">
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" name="phone" id="phone" class="input" placeholder="Enter Your Phone Number">
+
+            <label for="subject">Subject:</label>
+            <select name="subject" id="subject" class="input">
+                <option value="general">General Inquiry</option>
+                <option value="support">Support</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="msg">Message:</label>
+            <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Enter Your Message"></textarea>
+
+            <label for="agree">
+                <input type="checkbox" name="agree" id="agree"> I agree to the terms and conditions.
+            </label>
+
+            <input type="submit" value="SEND" id="SEND">
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Adres: Straatnaam 123</p>
+            <p>Email: info@bedrijf.nl</p>
+        </div>
+        <div class="footer-box">
+            <h3>Social Media</h3>
+            <div class="social">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Over ons</h3>
+            <p>We zijn een innovatief bedrijf dat ...</p>
+        </div>
+    </footer>
+</body>
+</html>
