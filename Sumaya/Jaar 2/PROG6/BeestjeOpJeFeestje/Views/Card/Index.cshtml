@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BeestjeOpJeFeestje.Models.CustomerCard>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h2>Alle klantenkaarten</h2>
+<br />
+
+@if (TempData["EditSuccess"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["EditSuccess"]
+	</div>
+}
+
+@if (TempData["EditError"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["EditError"]
+	</div>
+}
+
+@if (TempData["DeleteSuccess"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["DeleteSuccess"]
+	</div>
+}
+
+<a href="@Url.Action("Create")" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Maak een nieuwe klantenkaart</a>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Id
+			</th>
+			<th>
+				Type
+			</th>
+			<th>
+				Acties
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var card in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelBug => card.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(modelBug => card.Type)
+				</td>
+
+				<td>
+					<a href="@Url.Action("Edit", new { id = card.Id })" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Bewerken</a>
+					<a href="@Url.Action("Details", new {card.Id})" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Details</a>
+					<a href="@Url.Action("Delete", new {card.Id})" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Verwijder</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

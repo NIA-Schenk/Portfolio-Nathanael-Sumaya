@@ -1,0 +1,30 @@
+﻿/* Styling voor de pagina waar je beestjes kan kiezen voor boeking */
+.info-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.bug-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bug-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.bug-available {
+    color: green;
+}
+
+.bug-unavailable {
+    color: red;
+}
+
+.checkbox-disabled {
+    cursor: not-allowed;
+}

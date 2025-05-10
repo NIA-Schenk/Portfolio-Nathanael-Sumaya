@@ -1,0 +1,27 @@
+﻿@model BeestjeOpJeFeestje.Models.Booking
+
+@{
+    var today = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+<h2>Boek een beestje</h2>
+<p>
+    Welkom bij <cite>Beestje op een feestje (BOEF)</cite>.
+    Hier kun je een of meerdere van onze dieren boeken voor op jou feestje!
+    Kies de dag van je feestje en volg de stappen om je beestje te boeken.
+</p>
+
+<form asp-action="SelectDate" method="post">
+    <div>
+        <label for="Date">Selecteer een datum:</label>
+        <input asp-for="Date" type="date" min="@today" value=@today class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Boeken</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

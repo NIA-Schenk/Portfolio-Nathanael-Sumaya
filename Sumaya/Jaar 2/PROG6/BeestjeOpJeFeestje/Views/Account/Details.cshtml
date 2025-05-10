@@ -1,0 +1,20 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Account Details";
+    var customercard = ViewBag.CustomerCard; 
+}
+
+<h2>Accountgegevens</h2>
+<p>Schrijf deze gegevens ergens op!</p>
+
+<ul>
+    <li><strong>Naam:</strong> @Model.Name</li>
+    <li><strong>Email:</strong> @Model.Email</li>
+    <li><strong>Wachtwoord:</strong>@TempData["GeneratedPassword"]</li>
+    <li><strong>Adres:</strong> @Model.Address</li>
+    <li><strong>Telefoonnummer:</strong> @Model.PhoneNumber</li>
+    <li><strong>Klantenkaart:</strong>@customercard</li>
+</ul>
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-primary">Terug naar Home</a>

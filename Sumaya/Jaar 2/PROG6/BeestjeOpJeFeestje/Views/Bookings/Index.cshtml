@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Booking>
+
+@{
+    ViewData["Title"] = "Alle Boekingen";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<a href="@Url.Action("SelectDate")" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon>Boek beestjes</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Boeking Naam</th>
+            <th>Boeking Datum</th>
+            <th>Email</th>
+            <th>Telefoonnummer</th>
+            <th>Acties</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bookedBug in Model)
+        {
+            <tr>
+                <td>@bookedBug.Name</td>
+                <td>@bookedBug.Date.ToString("dd/MM/yyyy")</td>
+                <td>@bookedBug.Email</td>
+                <td>@bookedBug.PhoneNumber</td>
+                <td>
+                    <a href="@Url.Action("Delete", new { id = bookedBug.Id })" class="btn btn-outline-primary btn-sm">
+                        <iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Verwijder
+                    </a>
+                    <a href="@Url.Action("Details", new { id = bookedBug.Id })" class="btn btn-outline-secondary btn-sm">
+                        <iconify-icon icon="ph:info-bold"></iconify-icon> Details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿@model BeestjeOpJeFeestje.Models.Bug
+
+@{
+	var bug = ViewBag.bug as BeestjeOpJeFeestje.Models.Bug;
+}
+
+<h1>Details van beestje</h1>
+
+<br />
+
+<h4>@Html.DisplayNameFor(model => bug.Name): </h4>
+<p>@Html.DisplayFor(model => bug.Name)</p>
+<br />
+
+<h4>Type: </h4>
+<p>@Html.DisplayFor(modelBug => bug.bugType.Name)</p>
+<br />
+
+<h4>@Html.DisplayNameFor(model => bug.Price)</h4>
+<p>@Html.DisplayFor(modelBug => bug.Price)</p>
+<br />
+
+<h4>@Html.DisplayNameFor(model => bug.Picture)</h4>
+<p>@Html.DisplayFor(modelBug => bug.Picture)</p>
+<br />
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Terug</a>

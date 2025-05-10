@@ -1,0 +1,36 @@
+﻿@model BeestjeOpJeFeestje.Models.Bug
+
+@{
+	var bug = ViewBag.bug as BeestjeOpJeFeestje.Models.Bug;
+	ViewData["Title"] = "Delete";
+}
+
+<h1>Verwijder beestje</h1>
+
+<div class="alert alert-danger">
+	<h4><b>Weet je zeker dat je dit beestje wilt verwijderen?</b></h4>
+</div>
+
+<br />
+
+<h4>@Html.DisplayNameFor(model => bug.Name): </h4>
+<p>@Html.DisplayFor(model => bug.Name)</p>
+<br />
+
+<h4>Type: </h4>
+<p>@Html.DisplayFor(modelBug => bug.bugType.Name)</p>
+<br />
+
+<h4>@Html.DisplayNameFor(model => bug.Price)</h4>
+<p>@Html.DisplayFor(modelBug => bug.Price)</p>
+<br />
+
+<h4>@Html.DisplayNameFor(model => bug.Picture)</h4>
+<p>@Html.DisplayFor(modelBug => bug.Picture)</p>
+<br />
+
+<form method="post" asp-action="Delete">
+	<input type="hidden" asp-for="Id" />
+	<button type="submit" class="btn btn-primary">Verwijder</button>
+	<a href="@Url.Action("Index")" class="btn btn-secondary">Annuleren</a>
+</form>

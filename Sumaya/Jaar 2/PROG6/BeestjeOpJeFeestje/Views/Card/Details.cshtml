@@ -1,0 +1,19 @@
+﻿@model BeestjeOpJeFeestje.Models.CustomerCard
+
+@{
+	var card = ViewBag.card as BeestjeOpJeFeestje.Models.CustomerCard;
+}
+
+<h1>Details van een klantenkaart</h1>
+
+<br />
+
+<h4>@Html.DisplayNameFor(model => card.Id): </h4>
+<p>@Html.DisplayFor(modelCard => card.Id)</p>
+<br />
+
+<h4>@Html.DisplayNameFor(model => card.Type)</h4>
+<p>@Html.DisplayFor(modelCard => card.Type)</p>
+<br />
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Terug</a>

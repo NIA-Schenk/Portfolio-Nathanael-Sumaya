@@ -1,0 +1,28 @@
+﻿@model BeestjeOpJeFeestje.Models.CustomerCard
+
+@{
+	var customerCard = ViewBag.card as BeestjeOpJeFeestje.Models.CustomerCard;
+	ViewData["Title"] = "Delete";
+}
+
+<h1>Verwijder klantenkaart</h1>
+
+<div class="alert alert-danger">
+	<h4><b>Weet je zeker dat je deze klantenkaart wilt verwijderen?</b></h4>
+</div>
+
+<br />
+
+<h4>@Html.DisplayNameFor(model => customerCard.Id)</h4>
+<p>@Html.DisplayFor(modelCard => customerCard.Id)</p>
+<br />
+
+<h4>@Html.DisplayNameFor(model => customerCard.Type)</h4>
+<p>@Html.DisplayFor(modelCard => customerCard.Type)</p>
+<br />
+
+<form method="post" asp-action="Delete">
+	<input type="hidden" asp-for="Id" />
+	<button type="submit" class="btn btn-primary">Verwijder</button>
+	<a href="@Url.Action("Index")" class="btn btn-secondary">Annuleren</a>
+</form>

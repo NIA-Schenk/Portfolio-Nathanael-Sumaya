@@ -1,0 +1,51 @@
+﻿@model List<int>
+@{
+    var selectedBugs = Model ?? new List<int>();  // Huidige selectie van beestjes
+}
+
+<head>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+
+<h2>Kies je beestje voor @(((DateOnly)ViewBag.SelectedDate).ToString("dd-MM-yyyy"))</h2>
+
+@if (TempData["BookingErrors"] != null)
+{
+    var errors = TempData["BookingErrors"] as List<string>;
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in errors)
+            {
+                <li>@error</li>
+            }
+        </ul>
+    </div>
+}
+
+<div class="info-text">
+    <p>
+        Als een beestje <b class="bug-unavailable">rood</b> is, is het niet beschikbaar.<br>
+        Als een beestje <b class="bug-available">groen</b> is, is het beschikbaar.
+    </p>
+    <p>Hier zijn alle beestjes:</p>
+</div>
+
+<h3>Alle beestjes:</h3>
+
+<form asp-action="ChooseBugs" method="post">
+    <input type="hidden" name="BookingDate" value="@(((DateOnly)ViewBag.SelectedDate).ToString("yyyy-MM-dd"))" />
+
+    <ul class="bug-list">
+        @foreach (var bug in ViewBag.allBugs)
+        {
+            var isAvailable = ViewBag.availableBugs.Contains(bug);
+            <li class="bug-item">
+                <input type="checkbox" name="selectedBugs" value="@bug.Id"
+                @(isAvailable ? (selectedBugs.Contains(bug.Id) ? "checked" : "") : "disabled")
+                       class="@(isAvailable ? "" : "checkbox-disabled")" />
+                <label class="@(isAvailable ? "bug-available" : "bug-unavailable")">@bug.Name</label>
+            </li>
+        }
+    </ul>
+    <button type="submit" class="btn btn-primary">Beestjes Kiezen</button>
+</form>

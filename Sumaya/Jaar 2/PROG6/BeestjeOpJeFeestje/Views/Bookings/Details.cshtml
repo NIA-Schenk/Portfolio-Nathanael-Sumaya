@@ -1,0 +1,51 @@
+﻿@model BeestjeOpJeFeestje.Models.Booking
+
+<h1>Boeking Details</h1>
+<br /> 
+
+<div class="card">
+    <div class="card-header">
+        Details voor: @Model.Name
+    </div>
+    <div class="card-body">
+        <p><strong>Boekingsdatum:</strong> @Model.Date.ToString("dd/MM/yyyy")</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Telefoonnummer:</strong> @Model.PhoneNumber</p>
+        <p><strong>Totale prijs:</strong> @ViewBag.TotalPrice euro</p>
+        <p><strong>Korting:</strong> @ViewBag.Discount %</p>
+    </div>
+</div>
+<br />
+
+<h3>Geboekte Beestjes</h3>
+
+@if (Model.BookedBugs != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Beestje Naam</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bug in Model.BookedBugs)
+            {
+                <tr>
+                    <td>@bug.bug.Name</td>
+                    <td>
+                        <a href="@Url.Action("Details", "Bugs", new { id = bug.bug.Id })" class="btn btn-outline-secondary btn-sm">
+                            <iconify-icon icon="ph:info-bold"></iconify-icon> Beestje Details
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">Er zijn geen geboekte beestjes voor deze boeking.</div>
+}
+
+<a href="@Url.Action("Index")" class="btn btn-outline-primary btn-sm">Terug naar lijst</a>

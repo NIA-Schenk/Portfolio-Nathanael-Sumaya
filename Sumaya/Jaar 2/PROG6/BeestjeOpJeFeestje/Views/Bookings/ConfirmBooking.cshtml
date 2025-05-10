@@ -1,0 +1,53 @@
+﻿@model Booking
+
+<h2>Bevestig je boeking</h2>
+
+<p>Controleer je gegevens voordat je de boeking definitief maakt.</p>
+
+<table class="table">
+    <tr>
+        <th>Naam:</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Datum:</th>
+        <td>@Model.Date</td>
+    </tr>
+    <tr>
+        <th>Adres:</th>
+        <td>@Model.Address</td>
+    </tr>
+    <tr>
+        <th>E-mail:</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Telefoonnummer:</th>
+        <td>@Model.PhoneNumber</td>
+    </tr>
+    <tr>
+        <th>Geselecteerde beestjes:</th>
+        <td>
+            <ul class="list-group mb-4">
+                @foreach (var bug in Model.BookedBugs)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>@bug.bug.Name</span>
+                        <span class="badge bg-primary rounded-pill">@bug.bug.Price.ToString("C")</span>
+                    </li>
+                }
+            </ul>
+        </td>
+    </tr>
+    @if (ViewBag.Discount != null && ViewBag.TotalPrice != null)
+    {
+        <div class="alert alert-info">
+            <strong>Korting:</strong> @ViewBag.Discount%<br />
+            <strong>Totaalprijs na korting:</strong> € @((decimal)ViewBag.TotalPrice)
+        </div>
+    }
+</table>
+
+<form asp-action="ConfirmBooking" method="post">
+    <button type="submit" class="btn btn-success">Boeking bevestigen</button>
+</form>

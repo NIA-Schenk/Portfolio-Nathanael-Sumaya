@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BeestjeOpJeFeestje.Models.Bug>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h2>Alle Beestjes</h2>
+<br />
+
+@if (TempData["EditSuccess"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["EditSuccess"]
+	</div>
+}
+
+@if (TempData["EditError"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["EditError"]
+	</div>
+}
+
+@if (TempData["DeleteSuccess"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["DeleteSuccess"]
+	</div>
+}
+
+<a href="@Url.Action("Create")" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Maak nieuw beestje</a>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				Type
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Picture)
+			</th>
+			<th>
+				Acties
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var bug in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelBug => bug.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelBug => bug.bugType.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelBug => bug.Price)
+				</td>
+				<td>
+					@Html.DisplayFor(modelBug => bug.Picture)
+				</td>
+
+				<td>
+					<a href="@Url.Action("Edit", new { id = bug.Id })" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Bewerken</a>
+					<a href="@Url.Action("Details", new {bug.Id})" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Details</a>
+					<a href="@Url.Action("Delete", new {bug.Id})" class="btn btn-outline-primary btn-sm"><iconify-icon icon="ph:note-pencil-bold"></iconify-icon> Verwijder</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
