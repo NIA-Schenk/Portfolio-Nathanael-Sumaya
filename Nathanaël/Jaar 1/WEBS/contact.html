@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>📪 Contacteer mij!</title>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<link rel="stylesheet" href="./css/reiswensen-en-contact.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
+		<link rel="icon" href="./img/icon.png" />
+	</head>
+	<body>
+		<div id="top"></div>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="./index.html"><img class="logo" src="./img/logo-white.png" /></a>
+					</li>
+					<li><a href="./over-mij.html">Over mij</a></li>
+					<li class="dropdown">
+						<a class="dropbtn">
+							Meer over mij
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+								<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6" />
+							</svg>
+						</a>
+						<div class="dropdown-content">
+							<a href="./mijn-reiswensen.html">Mijn reiswensen</a>
+							<div class="dropdown-2">
+								<a class="dropbtn">
+									Mijn verzamelingen
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+										<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 6l6 6l-6 6" />
+									</svg>
+								</a>
+								<div class="dropdown-content-2">
+									<a href="./lego.html">LEGO®</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li><a href="./splash.html">Blokjes</a></li>
+					<li><a href="./tijdlijn.html">Tijdlijn</a></li>
+					<li><a href="./contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<section class="fivehundredpx o2">
+				<h1>Contact</h1>
+				<form class="contact-form">
+					<div class="form-row">
+						<div class="form-group">
+							<input type="text" id="name" name="name" placeholder=" " required />
+							<label for="name">Voornaam</label>
+						</div>
+						<div class="form-group">
+							<input type="email" id="email" name="email" placeholder=" " required />
+							<label for="email">E-mail</label>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<input type="date" id="date" name="date" required />
+							<label for="phone">Geboortedatum</label>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<input type="number" id="favnumber" name="favnumber" min="1" max="100" />
+							<label for="favnumber">Favoriete getal</label>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group"><input type="color" id="favcolor" name="favcolor" /><label for="favcolor">Favoriete kleur</label></div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<input type="file" accept="image/*" />
+							<label for="file">Favoriete meme</label>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<input type="url" name="url" id="url" pattern="https://.*" required />
+							<label for="url">Favoriete website</label>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<div class="select-wrapper">
+								<select id="subject" name="subject" value="" required>
+									<option value="" disabled selected>Wat wil je vragen of zeggen? Selecteer een optie.</option>
+									<option value="general">Algemene vraag</option>
+									<option value="friends">Vrienden worden</option>
+									<option value="Compliment">Compliment geven</option>
+									<option value="other">Anders&hellip;</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group message-group">
+							<textarea id="message" name="message" placeholder=" " required></textarea>
+							<label for="message">Bericht</label>
+						</div>
+					</div>
+					<button type="submit" class="submit-btn">Versturen</button>
+				</form>
+			</section>
+		</main>
+		<footer>
+			<section class="copyright">
+				<p>&copy; 2024 &ndash; NachoPichu &ndash; <a class="topbtn" href="#top">Naar boven</a></p>
+			</section>
+		</footer>
+	</body>
+</html>
+
