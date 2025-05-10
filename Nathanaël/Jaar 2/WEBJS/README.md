@@ -22,8 +22,8 @@ Future Color is een simulatie waarin je verschillende verfingrediënten kunt cre
 ## Weersimulatie via API
 Mengtijd wordt dynamisch beïnvloed door het weer in de gekozen stad:
 - Regen/Sneeuw: +10% mengtijd
-- >35°C: max. 1 machine actief
-- <10°C: +15% mengtijd
+- &gt;35°C: max. 1 machine actief
+- &lt;10°C: +15% mengtijd
 
 Locatie is eenvoudig instelbaar, de simulatie past zich automatisch aan.
 
