@@ -1,0 +1,44 @@
+/* Help container styling */
+.help-container {
+    font-size: xx-large;
+    text-align: justify;
+}
+
+.help-content {
+    margin: 1rem auto;
+    max-width: 900px;
+}
+
+.help-container h1 {
+    margin: 0;
+    display: flow-root;
+}
+
+.help-container h2 {
+    font-size: 1.25em;
+    display: flow-root;
+}
+
+.help-container h3 {
+    font-size: 1em;
+    display: flow-root;
+}
+
+.help-container h3:not(:first-of-type) {
+    margin-top: 5rem;
+}
+
+.help-container p,
+.help-container ol,
+.help-container ul,
+.help-container li {
+    font-size: 0.9em;
+}
+
+.help-content hr {
+    margin: 5rem 0;
+}
+
+.color-test-faq {
+    margin-bottom: calc(1em + 50px);
+}

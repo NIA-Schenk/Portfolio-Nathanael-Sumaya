@@ -1,0 +1,95 @@
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+/* Global CSS variables for consistent theming */
+:root {
+    /* Color palette */
+    --primary-color: #3198ec;
+    --primary-hover: #7ab3e2;
+    --primary-light: #9cc4e4;
+    --success-color: #4caf50;
+    --success-hover: #419645;
+    --warning-color: #ff9800;
+    --warning-hover: #e67e00;
+    --danger-color: #f44336;
+    --danger-hover: #e73f33;
+    --neutral-bg: #f3f3f3;
+    --white: #ffffff;
+    --black: #000000;
+    --border-black: 1px solid #000000;
+    
+    /* Typography */
+    --body-font: "Inter", sans-serif;
+    --code-font: "JetBrains Mono", monospace;
+    
+    /* Scrollbar styling */
+    --sb-track-color: #232e33;
+    --sb-thumb-color: #6baf8d;
+    --sb-size: 12px;
+    
+    /* Spacing and sizing */
+    --border-radius-6px: 6px;
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 0.75rem;
+    --border-radius-lg: 1rem;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Reset and base styles */
+* {
+    font-family: var(--body-font);
+    hyphens: auto;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    background-color: var(--white);
+    min-height: calc(100vh - 4rem);
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* Typography settings */
+h1, h2, h3 {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    margin-block: 0 10px;
+}
+
+code {
+    font-family: var(--code-font);
+    font-weight: 700;
+    font-size: 0.95em;
+}
+
+/* Custom scrollbar styling for webkit browsers */
+*::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 8px;
+    border: 2px solid var(--sb-track-color);
+}
+
+/* Fallback scrollbar styling for non-webkit browsers */
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}

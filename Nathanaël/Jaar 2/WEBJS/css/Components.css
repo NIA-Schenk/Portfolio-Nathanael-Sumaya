@@ -1,0 +1,38 @@
+/* Toggle collection button */
+.toggle-collection-button {
+    background-color: #dddddd;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    margin-top: 1rem;
+    max-width: 200px;
+}
+
+.toggle-collection-button:hover {
+    background-color: #eeeeee;
+}
+
+/* Drop zone styling */
+.sidebar-drop-zone {
+    min-height: 150px;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-drop-zone.drag-over {
+    background-color: #d8f3dc;
+}
+
+/* Sidebar pot card */
+.sidebar-pot-card {
+    background-color: #ffe;
+    border: 1px solid #aaa;
+    padding: 6px 10px;
+    margin: 5px 0;
+    font-weight: bold;
+    border-radius: 5px;
+}

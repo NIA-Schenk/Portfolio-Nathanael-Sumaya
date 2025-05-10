@@ -1,0 +1,60 @@
+/* Main layout containers */
+.app-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content areas */
+.content {
+    width: 100%;
+}
+
+/* Section containers for different parts of the app */
+.ingredient-section,
+.pot-section,
+#mixing-hall-1,
+#mixing-hall-2,
+.color-test-container,
+.welcome-container,
+.help-container {
+    flex: 1;
+    background-color: var(--neutral-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    min-height: calc(100vh - 2rem);
+    height: calc(100vh - 2rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 20%;
+    min-width: 20rem;
+    background-color: var(--neutral-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    height: calc(100vh - 2rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Layout for specific components */
+.ingredients-and-pots-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+}
+
+.mixing-hall-container {
+    height: calc(100vh - 6rem);
+}

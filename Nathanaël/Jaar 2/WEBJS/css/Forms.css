@@ -1,0 +1,36 @@
+/* Form containers */
+.form-container {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    margin-block: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Form element styling */
+label {
+    font-weight: bold;
+}
+
+input:not([type="color"]),
+select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="color"] {
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Input container layout */
+.input-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: center;
+    margin-block: 1rem;
+}

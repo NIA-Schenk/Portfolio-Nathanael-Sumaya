@@ -1,0 +1,19 @@
+/* Welcome container styling */
+.welcome-container {
+    text-align: center;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-text {
+    margin: 1rem auto;
+    max-width: 950px;
+}
+
+.copy {
+    margin-top: 5rem;
+    font-size: 1.75rem;
+    font-weight: 200;
+}

@@ -1,0 +1,19 @@
+van langzaam naar snel
+space_shuttle 28160
+formule1_raceauto 300
+speed_pedelec 45
+volkswagen_idbuzz 160
+marathonloper 20
+kayaking 6
+vierdaagsewandelaar 5
+fliz_bike 12
+driewieler 4
+bakkerbakfiets 10
+haas 48
+schildpad 1
+hogesnelheidstrein 330
+ns_sprinter 110
+holland8_roeien 9
+wielrenner_tijdrit 52
+f35_jointstrikefighter 1930
+orka 11
