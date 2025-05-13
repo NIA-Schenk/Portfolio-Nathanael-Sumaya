@@ -20,6 +20,3 @@ De gebruiker kan loof- en naaldbomen toevoegen, schilderijen opslaan en laden, e
 
 ## Bonusopties
 - Resizable UI met geschaalde objecten
-- Dynamische landschappen (woestijn, bergen, dorp)
-- Drag & drop van bomen (wanneer stilstaand)
-- Animatie (bijv. vliegende eend met toetsbesturing)
