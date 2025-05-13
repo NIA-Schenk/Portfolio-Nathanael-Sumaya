@@ -4,8 +4,9 @@ Welkom bij mijn duo-assessmentproject "Future Color", een complexe simulatie-app
 ## Over de applicatie
 Future Color is een simulatie waarin je verschillende verfingrediënten kunt creëren, mengen, en visueel testen. De simulatie weerspiegelt het interne proces van een duurzaam verfbedrijf dat probeert met minimale chemicaliën verf te produceren. De focus ligt op intuïtieve bediening, realistische menglogica en dynamische visualisatie — inclusief weersinvloeden.
 
-### Functionaliteiten:
+### Functionaliteiten
 - Dynamisch aanmaken van ingrediënten met eigenschappen:
+  - Keuze tussen willekeurig gegenereerde ingrediënten of zelf ingrediënten maken
   - Minimale mengtijd (ms)
   - Mengsnelheid
   - Kleur in RGB of HSL
@@ -13,6 +14,7 @@ Future Color is een simulatie waarin je verschillende verfingrediënten kunt cre
 - Dynamisch toevoegen van lege potten
 - Drag & drop ingrediënten naar potten (alleen combineerbaar bij gelijke mengsnelheid)
 - Meerdere mengmachines met variabele snelheid/tijd
+  - Machines kunnen ook willekeurig gegenereed worden
 - Drag & drop potten in machines
 - Automatische verwerking van potten na langste mengtijd
 - Visuele animatie van het mengproces
