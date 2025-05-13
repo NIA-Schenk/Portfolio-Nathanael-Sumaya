@@ -9,7 +9,7 @@ class WelcomeView {
             <p>On this page, you can mix multiple paint colors together and then compare them on a grid.</p>
             <p>Use the menu on the right to switch between the different pages.</p>
             <p>Need help? Check the FAQ.</p>
-            <p class="copy">&copy; ${copyrightYearString} NachoPichu<br>All rights reserved.</p>
+            <p class="copy">&copy; ${copyrightYearString} Nathanaël Schenk<br>All rights reserved.</p>
         `;
         this.welcomeSection.append(welcomeText);
     }
