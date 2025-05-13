@@ -19,20 +19,12 @@ Future Color is een simulatie waarin je verschillende verfingrediënten kunt cre
 - Meerdere menghallen (2), los navigeerbaar zonder reload
 - Ingrediënten zijn overal zichtbaar, hallen zijn instelbaar per machine
 
-## Weersimulatie via API
-Mengtijd wordt dynamisch beïnvloed door het weer in de gekozen stad:
-- Regen/Sneeuw: +10% mengtijd
-- &gt;35°C: max. 1 machine actief
-- &lt;10°C: +15% mengtijd
-
-Locatie is eenvoudig instelbaar, de simulatie past zich automatisch aan.
-
 ## Kleuren testen
 Een extra kleurentestmodule is inbegrepen:
 - Zelf gegenereerd grid (bijv. 6x6)
-- Invullen van vierkanten met gemengde verf
+- Automatisch invullen van vierkanten met gemengde verf
 - Klik op een kleur toont triadisch kleuradvies in popup
-- Advieskleuren worden weergegeven in RGB/HSL + visuele weergave
+- Advieskleuren worden weergegeven in HEX + visible weergave
 
 ## Gebruikte technieken
 - Alles geschreven in vanilla JavaScript (geen frameworks of packages)
